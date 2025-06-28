@@ -1,0 +1,100 @@
+[
+  {
+    "id": "repair-right",
+    "title": "RepairRight",
+    "overview": "RepairRight is a comprehensive, full-stack home repair and service booking platform that connects homeowners with trusted professionals. It offers seamless booking, management, and tracking of home repair services with real-time updates and secure authentication.",
+    "features": [
+      "Firebase Authentication with email/password and Google sign-in",
+      "JWT-based API security and role-based access control",
+      "Service management with CRUD operations and advanced search",
+      "One-click booking and real-time status tracking",
+      "Booking history for customers and providers",
+      "Responsive design with dark/light theme and smooth animations",
+      "Custom notifications and loading states",
+      "Popular services dashboard and provider profiles",
+      "SEO-friendly dynamic page titles and custom error pages"
+    ],
+    "techStacks": {
+      "frontend": [
+        "React",
+        "Vite",
+        "React Router",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Framer Motion"
+      ],
+      "backend": ["Node.js", "Express", "MongoDB", "Firebase Admin"],
+      "tools": ["ESLint", "Axios", "CORS", "dotenv"]
+    }
+  },
+  {
+    "id": "quickblog",
+    "title": "QuickBlog",
+    "overview": "QuickBlog is a modern, AI-powered blogging platform built with React, Node.js, and Express. It enables users to create, manage, and share stories with an intuitive admin panel and seamless user experience.",
+    "features": [
+      "Dynamic blog creation with rich text editor (Quill.js)",
+      "AI content generation powered by Google Gemini AI",
+      "Modern, responsive UI/UX with Tailwind CSS",
+      "Mobile-first design",
+      "Real-time blog search",
+      "Category management and comment system",
+      "JWT-based admin authentication and dashboard analytics",
+      "Content and comment management with moderation",
+      "Image upload and optimization via ImageKit",
+      "Social sharing, newsletter signup, and fast loading"
+    ],
+    "techStacks": {
+      "frontend": [
+        "React",
+        "Tailwind CSS",
+        "React Router",
+        "Quill.js",
+        "Framer Motion",
+        "React Hot Toast",
+        "Moment.js"
+      ],
+      "backend": [
+        "Node.js",
+        "Express.js",
+        "MongoDB (Mongoose)",
+        "JWT",
+        "CORS",
+        "Multer"
+      ],
+      "ai_services": ["Google Gemini AI"],
+      "tools": ["ImageKit", "Vercel"]
+    }
+  },
+  {
+    "id": "hobbyhub",
+    "title": "HobbyHub",
+    "overview": "HobbyHub is a full-stack web application that connects people through shared interests. Users can discover, join, and manage hobby groups, interact with like-minded enthusiasts, and share experiences.",
+    "features": [
+      "Discover and join hobby groups",
+      "Create and manage communities",
+      "Comment, like, and interact in real time",
+      "Personalized dashboard for group and profile management",
+      "Responsive design with light/dark theme",
+      "Smooth animations and error handling",
+      "Firebase authentication and real-time database",
+      "REST API for group management"
+    ],
+    "techStacks": {
+      "frontend": [
+        "React 19.1",
+        "Vite 6.3.5",
+        "Tailwind CSS 4.1.8",
+        "React Router 7.6.1",
+        "Lottie",
+        "React Icons",
+        "Framer Motion"
+      ],
+      "backend": [
+        "Node.js/Express",
+        "MongoDB (Atlas)",
+        "Firebase (Auth, Hosting, Realtime DB)",
+        "Vercel (Server deployment)"
+      ]
+    }
+  }
+]
