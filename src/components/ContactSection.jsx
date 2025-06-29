@@ -1,9 +1,4 @@
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Send
-} from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -38,14 +33,13 @@ export const ContactSection = () => {
           I'm always open to discussing new opportunities.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 place-items-center">
+          <div className="space-y-8 w-full flex flex-col items-center">
+            <h3 className="text-2xl font-semibold mb-6 text-center">
               Contact Information
             </h3>
 
-            <div className="space-y-6 justify-center">
+            <div className="space-y-6 justify-center w-full">
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />{" "}
@@ -67,11 +61,22 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Phone</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="tel:+8801626868986"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     +880 1626-868986
                   </a>
+                  <span className="ml-2">
+                    <a
+                      href="https://wa.me/8801626868986"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary/70 hover:text-primary underline"
+                      title="Chat on WhatsApp"
+                    >
+                      WhatsApp
+                    </a>
+                  </span>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -87,8 +92,8 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
+            <div className="pt-8 w-full">
+              <h4 className="font-medium mb-4 text-center"> Connect With Me</h4>
               <div className="flex gap-4 justify-center">
                 <a
                   href="https://linkedin.com/in/abir-shahadat-purab-672bab343"
@@ -116,12 +121,15 @@ export const ContactSection = () => {
           </div>
 
           <div
-            className="bg-card p-8 rounded-lg shadow-xs"
+            className="bg-card p-8 rounded-lg shadow-xs w-full flex flex-col items-center"
             onSubmit={handleSubmit}
           >
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-center">
+              {" "}
+              Send a Message
+            </h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6 w-full max-w-md">
               <div>
                 <label
                   htmlFor="name"

@@ -1,4 +1,6 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Eye } from "lucide-react";
+import { useState, useEffect } from "react";
+import ProjectModal from "./ui/ProjectModal";
 
 const projects = [
   {
@@ -10,6 +12,7 @@ const projects = [
     tags: ["React JS", "TailwindCSS", "MongoDB"],
     demoUrl: "https://repair-right-1a8c9.web.app",
     githubUrl: "https://github.com/Purab2001/Repair_Right",
+    jsonId: "repair-right",
   },
   {
     id: 2,
@@ -20,20 +23,44 @@ const projects = [
     tags: ["TailwindCSS", "React", "JWT"],
     demoUrl: "https://quick-blog-zeta-two.vercel.app",
     githubUrl: "https://github.com/Purab2001/QuickBlog",
+    jsonId: "quickblog",
   },
   {
     id: 3,
     title: "HobbyHub",
     description:
-      "HobbyHub is a web app to discover, join, and manage hobby groups—connect and share with others.",
+      "HobbyHub is a web app to discover, join, and manage hobby groups-connect and share with others.",
     image: "/projects/project3.png",
     tags: ["React", "Firebase", "JavaScript"],
     demoUrl: "https://hobbyhub-19bff.web.app",
     githubUrl: "https://github.com/Purab2001/hobbyhub",
+    jsonId: "hobbyhub",
   },
 ];
 
 export const ProjectsSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [projectDetails, setProjectDetails] = useState([]);
+
+  useEffect(() => {
+    fetch("/projects/project.json")
+      .then((res) => res.json())
+      .then((data) => setProjectDetails(data))
+      .catch(() => setProjectDetails([]));
+  }, []);
+
+  const handleViewDetails = (jsonId) => {
+    const detail = projectDetails.find((p) => p.id === jsonId);
+    setSelectedProject(detail || null);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -77,7 +104,7 @@ export const ProjectsSection = () => {
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-4">
                   <div className="flex space-x-3">
                     <a
                       href={project.demoUrl}
@@ -94,6 +121,17 @@ export const ProjectsSection = () => {
                       <Github size={20} />
                     </a>
                   </div>
+                  <button
+                    className="cosmic-button flex items-center justify-center gap-1 px-3 h-8 rounded-md text-xs"
+                    type="button"
+                    onClick={() => handleViewDetails(project.jsonId)}
+                    title="View Details"
+                  >
+                    <span className="flex items-center gap-1 w-full justify-center">
+                      <Eye size={16} />
+                      <span className="leading-none">View Details</span>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -110,6 +148,11 @@ export const ProjectsSection = () => {
           </a>
         </div>
       </div>
+      <ProjectModal
+        project={selectedProject}
+        open={modalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 };
