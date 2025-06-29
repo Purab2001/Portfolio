@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/useTheme";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -13,10 +14,11 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode] = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -34,10 +36,19 @@ export const Navbar = () => {
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> A.S.Purab </span>{" "}
-            Portfolio
-          </span>
+          {isDarkMode ? (
+            <img
+              src="/logo-dark.png"
+              alt="A.S.Purab Logo Dark"
+              className="h-10 w-auto"
+            />
+          ) : (
+            <img
+              src="/logo-light.png"
+              alt="A.S.Purab Logo Light"
+              className="h-10 w-auto"
+            />
+          )}
         </a>
 
         {/* desktop nav */}
