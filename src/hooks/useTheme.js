@@ -3,14 +3,20 @@ import { useEffect, useState } from "react";
 export function useTheme() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const storedTheme = localStorage.getItem("theme");
+    console.log("[useTheme] Initial storedTheme:", storedTheme);
     if (storedTheme === "dark") return true;
     if (storedTheme === "light") return false;
     // If no theme is stored, use OS preference
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    console.log("[useTheme] No stored theme, prefersDark:", prefersDark);
+    return prefersDark;
   });
 
   useEffect(() => {
     // Set the <html> class and localStorage on mount and when isDarkMode changes
+    console.log("[useTheme] useEffect isDarkMode:", isDarkMode);
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");

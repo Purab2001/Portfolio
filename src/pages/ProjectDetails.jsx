@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "@/hooks/useTheme";
 import { useParams, useNavigate } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { StarBackground } from "@/components/StarBackground";
@@ -7,6 +8,10 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 
 const ProjectDetails = () => {
   const { id } = useParams();
+  const [isDarkMode] = useTheme();
+  useEffect(() => {
+    console.log("[ProjectDetails] isDarkMode:", isDarkMode);
+  }, [isDarkMode]);
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,7 +38,15 @@ const ProjectDetails = () => {
     return <div className="text-center py-20">Project not found.</div>;
   }
 
-  const { title, images = [], overview, features, techStacks, demoUrl, githubUrl } = project;
+  const {
+    title,
+    images = [],
+    overview,
+    features,
+    techStacks,
+    demoUrl,
+    githubUrl,
+  } = project;
 
   return (
     <div className="relative min-h-screen bg-background text-foreground font-sans">
@@ -56,7 +69,9 @@ const ProjectDetails = () => {
         {/* Project Title and Overview */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-primary">{title}</h1>
-          <p className="mt-4 text-muted-foreground leading-relaxed">{overview}</p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            {overview}
+          </p>
         </div>
 
         {/* Project Links */}
@@ -87,7 +102,9 @@ const ProjectDetails = () => {
 
         {/* Features Section */}
         <div className="mb-12">
-          <h2 className="text-lg md:text-2xl font-bold text-primary mb-4">Features</h2>
+          <h2 className="text-lg md:text-2xl font-bold text-primary mb-4">
+            Features
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {features.map((feature, index) => (
               <div
@@ -114,7 +131,9 @@ const ProjectDetails = () => {
 
         {/* Tech Stack Section */}
         <div>
-          <h2 className="text-lg md:text-2xl font-bold text-primary mb-4">Tech Stack</h2>
+          <h2 className="text-lg md:text-2xl font-bold text-primary mb-4">
+            Tech Stack
+          </h2>
           <div className="flex flex-col gap-6">
             {Object.entries(techStacks).map(([category, stacks]) => (
               <div key={category}>
