@@ -84,7 +84,7 @@ const ProjectDetails = () => {
               className="px-6 py-2 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors flex items-center"
             >
               <ExternalLink size={20} className="inline-block mr-2" />
-              Live Demo
+              <span className="max-sm:hidden">Live Demo</span>
             </a>
           )}
           {githubUrl && (
@@ -95,7 +95,7 @@ const ProjectDetails = () => {
               className="px-6 py-2 rounded-lg bg-gray-800 text-white font-semibold hover:bg-gray-700 transition-colors flex items-center"
             >
               <Github size={20} className="inline-block mr-2" />
-              GitHub
+              <span className="max-sm:hidden">GitHub</span>
             </a>
           )}
         </div>
