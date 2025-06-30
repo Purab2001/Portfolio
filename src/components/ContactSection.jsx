@@ -14,12 +14,16 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
     emailjs
       .sendForm(
-        "service_dgx483m",
-        "template_i49kiig",
+        SERVICE_ID,
+        TEMPLATE_ID,
         form.current,
-        "ELveVoOr5uOVq_u7I"
+        PUBLIC_KEY
       )
       .then(() => {
         toast({
