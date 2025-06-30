@@ -83,7 +83,7 @@ const ProjectDetails = () => {
               rel="noopener noreferrer"
               className="px-6 py-2 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors flex items-center"
             >
-              <ExternalLink size={20} className="inline-block mr-2" />
+              <ExternalLink size={20} className="inline-block mr-0 md:mr-2" />
               <span className="max-sm:hidden">Live Demo</span>
             </a>
           )}
@@ -94,7 +94,7 @@ const ProjectDetails = () => {
               rel="noopener noreferrer"
               className="px-6 py-2 rounded-lg bg-gray-800 text-white font-semibold hover:bg-gray-700 transition-colors flex items-center"
             >
-              <Github size={20} className="inline-block mr-2" />
+              <Github size={20} className="inline-block mr-0 md:mr-2" />
               <span className="max-sm:hidden">GitHub</span>
             </a>
           )}

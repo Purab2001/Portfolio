@@ -42,18 +42,6 @@ This is my personal portfolio website, built to showcase my skills, experience, 
 
 ---
 
-## ⚡ How to Run Locally
-
-```bash
-git clone https://github.com/Purab2001/Portfolio.git
-cd Portfolio
-npm install
-npm run dev
-```
-App will be available at [http://localhost:5173](http://localhost:5173)
-
----
-
 ## 📫 Contact
 
 - GitHub: [Purab2001](https://github.com/Purab2001)
