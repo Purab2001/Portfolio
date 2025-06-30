@@ -1,25 +1,42 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
+  const form = useRef();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    emailjs
+      .sendForm(
+        "service_dgx483m",
+        "template_i49kiig",
+        form.current,
+        "ELveVoOr5uOVq_u7I"
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setIsSubmitting(false);
+        form.current.reset();
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
       });
-      setIsSubmitting(false);
-    }, 1500);
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -120,16 +137,17 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs w-full flex flex-col items-center"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs w-full flex flex-col items-center">
             <h3 className="text-2xl font-semibold mb-6 text-center">
               {" "}
               Send a Message
             </h3>
 
-            <form className="space-y-6 w-full max-w-md">
+            <form
+              ref={form}
+              onSubmit={handleSubmit}
+              className="space-y-6 w-full max-w-md"
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -182,6 +200,11 @@ export const ContactSection = () => {
                   placeholder="Hello, I'd like to talk about..."
                 />
               </div>
+              <input
+                type="hidden"
+                name="time"
+                value={new Date().toLocaleString()}
+              />
 
               <button
                 type="submit"
