@@ -23,8 +23,6 @@ This is my personal portfolio website, built to showcase my skills, experience, 
 ## 🛠️ Tech Stack
 
 - **Frontend:** React, Tailwind CSS, Vite
-- **Backend:** Node.js, Express.js (for API integrations)
-- **Database:** MongoDB, Firebase (for project demos)
 - **Other:** Lucide Icons, Radix UI, GitHub Actions
 
 ---
