@@ -1,6 +1,5 @@
 import { ArrowRight, ExternalLink, Github, Eye } from "lucide-react";
-import { useState, useEffect } from "react";
-import ProjectModal from "./ui/ProjectModal";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
@@ -39,28 +38,6 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [projectDetails, setProjectDetails] = useState([]);
-
-  useEffect(() => {
-    fetch("/projects/project.json")
-      .then((res) => res.json())
-      .then((data) => setProjectDetails(data))
-      .catch(() => setProjectDetails([]));
-  }, []);
-
-  const handleViewDetails = (jsonId) => {
-    const detail = projectDetails.find((p) => p.id === jsonId);
-    setSelectedProject(detail || null);
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-    setSelectedProject(null);
-  };
-
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -121,17 +98,16 @@ export const ProjectsSection = () => {
                       <Github size={20} />
                     </a>
                   </div>
-                  <button
+                  <Link
                     className="cosmic-button flex items-center justify-center gap-1 px-3 h-8 rounded-md text-xs"
-                    type="button"
-                    onClick={() => handleViewDetails(project.jsonId)}
+                    to={`/project-details/${project.jsonId}`}
                     title="View Details"
                   >
                     <span className="flex items-center gap-1 w-full justify-center">
                       <Eye size={16} />
                       <span className="leading-none">View Details</span>
                     </span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -148,11 +124,6 @@ export const ProjectsSection = () => {
           </a>
         </div>
       </div>
-      <ProjectModal
-        project={selectedProject}
-        open={modalOpen}
-        onClose={handleCloseModal}
-      />
     </section>
   );
 };

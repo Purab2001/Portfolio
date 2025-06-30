@@ -2,6 +2,13 @@
   {
     "id": "repair-right",
     "title": "RepairRight",
+    "images": [
+      "/projects/project1.png",
+      "/projects/project1-2.png",
+      "/projects/project1-3.png",
+      "/projects/project1-4.png",
+      "/projects/project1-5.png"
+    ],
     "overview": "RepairRight is a comprehensive, full-stack home repair and service booking platform that connects homeowners with trusted professionals. It offers seamless booking, management, and tracking of home repair services with real-time updates and secure authentication.",
     "features": [
       "Firebase Authentication with email/password and Google sign-in",
@@ -25,11 +32,18 @@
       ],
       "backend": ["Node.js", "Express", "MongoDB", "Firebase Admin"],
       "tools": ["ESLint", "Axios", "CORS", "dotenv"]
-    }
+    },
+    "demoUrl": "https://repair-right-1a8c9.web.app",
+    "githubUrl": "https://github.com/Purab2001/Repair_Right"
   },
   {
     "id": "quickblog",
     "title": "QuickBlog",
+    "images": [
+      "/projects/project2.png",
+      "/projects/project2-2.png",
+      "/projects/project2-3.png"
+    ],
     "overview": "QuickBlog is a modern, AI-powered blogging platform built with React, Node.js, and Express. It enables users to create, manage, and share stories with an intuitive admin panel and seamless user experience.",
     "features": [
       "Dynamic blog creation with rich text editor (Quill.js)",
@@ -63,11 +77,20 @@
       ],
       "ai_services": ["Google Gemini AI"],
       "tools": ["ImageKit", "Vercel"]
-    }
+    },
+    "demoUrl": "https://quick-blog-zeta-two.vercel.app",
+    "githubUrl": "https://github.com/Purab2001/QuickBlog"
   },
   {
     "id": "hobbyhub",
     "title": "HobbyHub",
+    "images": [
+      "/projects/project3.png",
+      "/projects/project3-2.png",
+      "/projects/project3-3.png",
+      "/projects/project3-4.png",
+      "/projects/project3-5.png"
+    ],
     "overview": "HobbyHub is a full-stack web application that connects people through shared interests. Users can discover, join, and manage hobby groups, interact with like-minded enthusiasts, and share experiences.",
     "features": [
       "Discover and join hobby groups",
@@ -95,6 +118,8 @@
         "Firebase (Auth, Hosting, Realtime DB)",
         "Vercel (Server deployment)"
       ]
-    }
+    },
+    "demoUrl": "https://hobbyhub-19bff.web.app",
+    "githubUrl": "https://github.com/Purab2001/hobbyhub"
   }
 ]
