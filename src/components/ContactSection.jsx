@@ -117,7 +117,7 @@ export const ContactSection = () => {
               <h4 className="font-medium mb-4 text-center"> Connect With Me</h4>
               <div className="flex gap-4 justify-center">
                 <a
-                  href="https://linkedin.com/in/abir-shahadat-purab-672bab343"
+                  href="https://linkedin.com/in/a-s-purab"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
