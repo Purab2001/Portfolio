@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 const projects = [
   {
     id: 1,
+    title: "Paynode",
+    description:
+      "Employee management and payroll platform streamlining HR tasks and operations for modern businesses.",
+    image: "/projects/project1.jpg",
+    tags: ["React JS", "Stripe", "MongoDB"],
+    demoUrl: "https://paynode-2025.web.app",
+    githubUrl: "https://github.com/Purab2001/Paynode_client",
+    jsonId: "paynode",
+  },
+  {
+    id: 2,
     title: "RepairRight",
     description:
       "RepairRight is a platform for booking, tracking, and managing home repair services with ease.",
-    image: "/projects/project1.png",
+    image: "/projects/project2.png",
     tags: ["React JS", "TailwindCSS", "MongoDB"],
     demoUrl: "https://repair-right-1a8c9.web.app",
     githubUrl: "https://github.com/Purab2001/Repair_Right",
     jsonId: "repair-right",
-  },
-  {
-    id: 2,
-    title: "QuickBlog",
-    description:
-      "A modern AI-powered blogging platform to create, manage, and share stories with ease.",
-    image: "/projects/project2.png",
-    tags: ["TailwindCSS", "React", "JWT"],
-    demoUrl: "https://quick-blog-zeta-two.vercel.app",
-    githubUrl: "https://github.com/Purab2001/QuickBlog",
-    jsonId: "quickblog",
   },
   {
     id: 3,
