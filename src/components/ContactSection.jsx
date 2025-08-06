@@ -19,12 +19,7 @@ export const ContactSection = () => {
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     emailjs
-      .sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        form.current,
-        PUBLIC_KEY
-      )
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then(() => {
         toast({
           title: "Message sent!",
@@ -42,17 +37,29 @@ export const ContactSection = () => {
         setIsSubmitting(false);
       });
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
-        </h2>
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-12 h-[2px] bg-gradient-to-r from-transparent to-primary"></div>
+            <span className="text-primary font-medium tracking-wider uppercase text-sm">
+              Contact Me
+            </span>
+            <div className="w-12 h-[2px] bg-gradient-to-l from-transparent to-primary"></div>
+          </div>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
-        </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Get In
+            <span className="text-gradient"> Touch</span>
+          </h2>
+
+          <p className="text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            Have a project in mind or want to collaborate? Feel free to reach
+            out. I'm always open to discussing new opportunities.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 place-items-center">
           <div className="space-y-8 w-full flex flex-col items-center">
@@ -60,27 +67,27 @@ export const ContactSection = () => {
               Contact Information
             </h3>
 
-            <div className="space-y-6 justify-center w-full">
-              <div className="flex items-start space-x-4">
+            <div className="space-y-6 w-full">
+              <div className="flex space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium text-start">Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:a.s.purab0@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     a.s.purab0@gmail.com
                   </a>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
+                  <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium text-start">Phone</h4>
                   <a
                     href="tel:+8801626868986"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -100,12 +107,12 @@ export const ContactSection = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
+                  <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
+                  <h4 className="font-medium text-start">Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
                     Dhaka-1207, Bangladesh
                   </a>
@@ -114,7 +121,7 @@ export const ContactSection = () => {
             </div>
 
             <div className="pt-8 w-full">
-              <h4 className="font-medium mb-4 text-center"> Connect With Me</h4>
+              <h4 className="font-medium mb-4 text-center">Connect With Me</h4>
               <div className="flex gap-4 justify-center">
                 <a
                   href="https://linkedin.com/in/a-s-purab"
@@ -143,7 +150,6 @@ export const ContactSection = () => {
 
           <div className="bg-card p-8 rounded-lg shadow-xs w-full flex flex-col items-center">
             <h3 className="text-2xl font-semibold mb-6 text-center">
-              {" "}
               Send a Message
             </h3>
 
@@ -157,7 +163,6 @@ export const ContactSection = () => {
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Name
                 </label>
                 <input
@@ -175,7 +180,6 @@ export const ContactSection = () => {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Email
                 </label>
                 <input
@@ -193,7 +197,6 @@ export const ContactSection = () => {
                   htmlFor="message"
                   className="block text-sm font-medium mb-2"
                 >
-                  {" "}
                   Your Message
                 </label>
                 <textarea
