@@ -66,13 +66,13 @@ export const Navbar = () => {
                 <img
                   src="/logo-dark.png"
                   alt="A.S.Purab Logo Dark"
-                  className="h-12 w-auto transition-transform duration-300 group-hover:rotate-12"
+                  className="h-7 md:h-12 w-auto transition-transform duration-300 group-hover:rotate-12"
                 />
               ) : (
                 <img
                   src="/logo-light.png"
                   alt="A.S.Purab Logo Light"
-                  className="h-12 w-auto transition-transform duration-300 group-hover:rotate-12"
+                  className="h-7 md:h-12 w-auto transition-transform duration-300 group-hover:rotate-12"
                 />
               )}
               <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-primary animate-bounce-gentle opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -137,14 +137,14 @@ export const Navbar = () => {
           
           {/* Menu Content */}
           <div className="relative flex flex-col items-center justify-center h-full">
-            <div className="flex flex-col items-center gap-6 text-center">
+            <div className="flex flex-col items-center gap-4 text-center">
               {navItems.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={cn(
-                    "group relative px-8 py-4 text-2xl font-semibold rounded-2xl transition-all duration-500 hover:scale-110 flex items-center gap-4",
+                    "group relative px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-500 hover:scale-110 flex items-center gap-4",
                     "stagger-animation",
                     activeSection === item.href.substring(1)
                       ? "text-primary glassmorphism shadow-xl"

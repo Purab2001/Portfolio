@@ -193,17 +193,6 @@ export const HeroSection = () => {
           <div className="w-1 h-3 bg-primary rounded-full animate-bounce-gentle mt-2"></div>
         </div>
       </div>
-
-      {/* Floating Action Elements */}
-      <div className="absolute top-1/2 right-8 transform -translate-y-1/2 hidden xl:flex flex-col gap-4 opacity-0 animate-fade-in-delay-4">
-        <div className="group cursor-pointer p-3 glassmorphism rounded-full hover:scale-110 transition-all duration-300">
-          <div className="w-2 h-2 bg-primary rounded-full group-hover:animate-pulse"></div>
-        </div>
-        <div className="w-px h-20 bg-gradient-to-b from-primary/50 to-transparent"></div>
-        <div className="group cursor-pointer p-3 glassmorphism rounded-full hover:scale-110 transition-all duration-300">
-          <div className="w-2 h-2 bg-primary rounded-full group-hover:animate-pulse"></div>
-        </div>
-      </div>
     </section>
   );
 };

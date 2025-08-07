@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useRef, useState } from "react";
-import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub, FaWhatsapp } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
@@ -62,10 +62,8 @@ export const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 place-items-center">
-          <div className="space-y-8 w-full flex flex-col items-center">
-            <h3 className="text-2xl font-semibold mb-6 text-center">
-              Contact Information
-            </h3>
+          <div className="space-y-8 w-full flex flex-col">
+            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
 
             <div className="space-y-6 w-full">
               <div className="flex space-x-4">
@@ -90,21 +88,21 @@ export const ContactSection = () => {
                   <h4 className="font-medium text-start">Phone</h4>
                   <a
                     href="tel:+8801626868986"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors flex items-center"
                   >
                     +880 1626-868986
+                    <span className="ml-2">
+                      <a
+                        href="https://wa.me/8801626868986"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-500 hover:text-green-600"
+                        title="Chat on WhatsApp"
+                      >
+                        <FaWhatsapp size={18} />
+                      </a>
+                    </span>
                   </a>
-                  <span className="ml-2">
-                    <a
-                      href="https://wa.me/8801626868986"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary/70 hover:text-primary underline"
-                      title="Chat on WhatsApp"
-                    >
-                      WhatsApp
-                    </a>
-                  </span>
                 </div>
               </div>
               <div className="flex space-x-4">
@@ -161,7 +159,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-start"
                 >
                   Your Name
                 </label>
@@ -178,7 +176,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-start"
                 >
                   Your Email
                 </label>
@@ -195,7 +193,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-start"
                 >
                   Your Message
                 </label>
