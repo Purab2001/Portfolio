@@ -113,7 +113,7 @@ export const HeroSection = () => {
 
             {/* Description */}
             <div className="max-w-2xl opacity-0 animate-fade-in-delay-4 text-left">
-              <p className="text-lg md:text-xl text-foreground/70 leading-relaxed mb-6">
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
                 I craft dynamic web applications with modern technologies,
                 specializing in React, Node.js, and full-stack development.
                 Passionate about creating seamless user experiences and scalable
@@ -185,12 +185,12 @@ export const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-gentle opacity-0 animate-fade-in-delay-4">
-        <span className="text-sm text-foreground/60 mb-3 font-medium">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in-delay-4">
+        <span className="text-sm text-foreground/60 mb-3 font-medium animate-pulse">
           Discover More
         </span>
-        <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full animate-bounce-gentle mt-2"></div>
+        <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex justify-center relative overflow-hidden">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </section>
