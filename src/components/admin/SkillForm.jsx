@@ -7,9 +7,13 @@ import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
+import { useToast } from "@/hooks/use-toast";
+// ... imports
+
 export function SkillForm({ initialData = null, onClose }) {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const { toast } = useToast();
 
     // If initialData is provided, we assume we are in "Edit Mode" controlled by parent
     // If not, we are in "Add Mode" controlled by local dialog state
@@ -32,6 +36,11 @@ export function SkillForm({ initialData = null, onClose }) {
 
             await saveSkill(skill);
 
+            toast({
+                title: "Success",
+                description: `Skill ${isEditMode ? "updated" : "created"} successfully`,
+            });
+
             if (!isEditMode) {
                 setIsOpen(false);
                 e.target.reset();
@@ -40,7 +49,11 @@ export function SkillForm({ initialData = null, onClose }) {
             }
         } catch (error) {
             console.error(error);
-            alert("Failed to save skill");
+            toast({
+                title: "Error",
+                description: "Failed to save skill",
+                variant: "destructive",
+            });
         } finally {
             setLoading(false);
         }

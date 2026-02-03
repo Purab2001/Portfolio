@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { deleteSkill } from "@/actions/admin";
+import { useToast } from "@/hooks/use-toast";
 import { SkillForm } from "./SkillForm";
 import { SkillIcon } from "@/components/SkillIcon";
 import { Trash2, Pencil } from "lucide-react";
@@ -9,10 +10,24 @@ import * as Dialog from "@radix-ui/react-dialog";
 
 export function SkillList({ skills }) {
     const [editingSkill, setEditingSkill] = useState(null);
+    const { toast } = useToast();
 
     const handleDelete = async (id) => {
         if (confirm("Are you sure you want to delete this skill?")) {
-            await deleteSkill(id);
+            try {
+                await deleteSkill(id);
+                toast({
+                    title: "Success",
+                    description: "Skill deleted successfully",
+                });
+            } catch (error) {
+                console.error(error);
+                toast({
+                    title: "Error",
+                    description: "Failed to delete skill",
+                    variant: "destructive",
+                });
+            }
         }
     };
 

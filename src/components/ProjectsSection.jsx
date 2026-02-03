@@ -1,20 +1,19 @@
 import { ArrowRight, ExternalLink, Github, Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import projectsData from "@/data/project.json";
 
-const projects = projectsData.map(p => ({
-  id: p.id,
-  title: p.title,
-  description: p.overview.substring(0, 100) + "...", // Truncate overview for description
-  image: p.images[0] || "/placeholder.jpg",
-  tags: p.techStacks?.frontend?.slice(0, 3) || [],
-  demoUrl: p.demoUrl,
-  githubUrl: p.githubUrl,
-  jsonId: p.id
-}));
+export const ProjectsSection = ({ projects: rawProjects = [] }) => {
+  const projects = rawProjects.map(p => ({
+    id: p.id,
+    title: p.title,
+    description: p.overview.substring(0, 100) + "...", // Truncate overview for description
+    image: p.images[0] || "/placeholder.jpg",
+    tags: p.techStacks?.frontend?.slice(0, 3) || [],
+    demoUrl: p.demoUrl,
+    githubUrl: p.githubUrl,
+    jsonId: p.id
+  }));
 
-export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 relative">
       <div className="container mx-auto max-w-7xl">

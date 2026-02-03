@@ -75,13 +75,16 @@ function DynamicListInput({ label, items, onChange, placeholder }) {
     );
 }
 
+import { useToast } from "@/hooks/use-toast";
+// ...
+
 export function ProjectForm({ initialData = null, onClose }) {
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState("general");
+    const { toast } = useToast();
 
     const isEditMode = !!initialData;
-
     // Initialize state
     const [formData, setFormData] = useState({
         title: initialData?.title || "",
@@ -111,6 +114,11 @@ export function ProjectForm({ initialData = null, onClose }) {
 
             await saveProject(project);
 
+            toast({
+                title: "Success",
+                description: `Project ${isEditMode ? "updated" : "created"} successfully`,
+            });
+
             if (!isEditMode) {
                 setIsOpen(false);
                 // Reset form
@@ -125,7 +133,11 @@ export function ProjectForm({ initialData = null, onClose }) {
             }
         } catch (error) {
             console.error(error);
-            alert("Failed to save project");
+            toast({
+                title: "Error",
+                description: "Failed to save project",
+                variant: "destructive",
+            });
         } finally {
             setLoading(false);
         }

@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Star, Code, Database, Wrench, Award } from "lucide-react";
 import { SkillIcon } from "@/components/SkillIcon";
-import skillsData from "@/data/skills.json"; // Direct import for now, can be replaced with fetch if needed
 
 const categories = [
   {
@@ -33,13 +32,10 @@ const categories = [
   },
 ];
 
-export const SkillsSection = () => {
+export const SkillsSection = ({ skills = [] }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [visibleSkills, setVisibleSkills] = useState(new Set());
   const skillRefs = useRef([]);
-
-  // Use data from JSON
-  const skills = skillsData;
 
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { deleteProject } from "@/actions/admin";
+import { useToast } from "@/hooks/use-toast";
 import { ProjectForm } from "./ProjectForm";
 import { Trash2, Pencil } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -9,10 +10,24 @@ import Image from "next/image";
 
 export function ProjectList({ projects }) {
     const [editingProject, setEditingProject] = useState(null);
+    const { toast } = useToast();
 
     const handleDelete = async (id) => {
         if (confirm("Are you sure you want to delete this project?")) {
-            await deleteProject(id);
+            try {
+                await deleteProject(id);
+                toast({
+                    title: "Success",
+                    description: "Project deleted successfully",
+                });
+            } catch (error) {
+                console.error(error);
+                toast({
+                    title: "Error",
+                    description: "Failed to delete project",
+                    variant: "destructive",
+                });
+            }
         }
     };
 

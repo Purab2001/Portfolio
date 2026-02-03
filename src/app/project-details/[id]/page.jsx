@@ -1,12 +1,11 @@
-import projects from "@/data/project.json";
+import { prisma } from "@/lib/prisma";
 import ProjectDetails from "@/components/ProjectDetails";
-
-// Add this line to enable Edge Runtime
-export const runtime = "edge";
 
 export default async function ProjectDetailsPage({ params }) {
   const resolvedParams = await params;
-  const project = projects.find((p) => p.id === resolvedParams.id);
+  const project = await prisma.project.findUnique({
+    where: { id: resolvedParams.id },
+  });
 
   if (!project) {
     return <div className="text-center py-20">Project not found.</div>;
