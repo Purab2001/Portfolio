@@ -1,0 +1,114 @@
+[
+  {
+    "id": "html",
+    "name": "HTML",
+    "level": 100,
+    "category": "frontend",
+    "icon": "/HTML.svg"
+  },
+  {
+    "id": "css",
+    "name": "CSS",
+    "level": 90,
+    "category": "frontend",
+    "icon": "/CSS.svg"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "level": 90,
+    "category": "frontend",
+    "icon": "/JS.svg"
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "level": 90,
+    "category": "frontend",
+    "icon": "/react.svg"
+  },
+  {
+    "id": "nextjs",
+    "name": "Next.js",
+    "level": 80,
+    "category": "frontend",
+    "icon": "/next.svg"
+  },
+  {
+    "id": "tailwindcss",
+    "name": "Tailwind CSS",
+    "level": 90,
+    "category": "frontend",
+    "icon": "/Tailwind CSS.svg"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "level": 80,
+    "category": "backend",
+    "icon": "/Node JS.svg"
+  },
+  {
+    "id": "expressjs",
+    "name": "Express.js",
+    "level": 75,
+    "category": "backend",
+    "icon": "/Express JS.svg"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "level": 70,
+    "category": "backend",
+    "icon": "/mongoDB.svg"
+  },
+  {
+    "id": "axios",
+    "name": "Axios",
+    "level": 75,
+    "category": "backend",
+    "icon": "SiAxios"
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "level": 80,
+    "category": "backend",
+    "icon": "SiStripe"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "level": 85,
+    "category": "backend",
+    "icon": "/Firebase.svg"
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "level": 90,
+    "category": "tools",
+    "icon": "/Github.svg"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "level": 70,
+    "category": "tools",
+    "icon": "SiDocker"
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "level": 85,
+    "category": "tools",
+    "icon": "/Figma.svg"
+  },
+  {
+    "id": "vscode",
+    "name": "VS Code",
+    "level": 95,
+    "category": "tools",
+    "icon": "/VS Code.svg"
+  }
+]

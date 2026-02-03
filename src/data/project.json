@@ -1,0 +1,152 @@
+[
+  {
+    "id": "paynode",
+    "title": "Paynode",
+    "images": [
+      "/projects/project1.jpg",
+      "/projects/project1-2.png",
+      "/projects/project1-3.png",
+      "/projects/project1-4.png",
+      "/projects/project1-5.png"
+    ],
+    "overview": "Paynode is a modern, full-stack employee management and payroll platform designed to streamline HR operations, automate payroll, and deliver real-time analytics. It empowers organizations with secure authentication, role-based dashboards, and seamless payment processing.",
+    "features": [
+      "Role-based dashboards for Admin, HR, and Employees",
+      "Secure authentication with email/password and Google sign-in",
+      "Role-based route protection and access control",
+      "Employee management and payroll automation",
+      "Stripe integration for secure payment processing",
+      "Real-time chat and instant messaging",
+      "Service catalog with detailed pages and categorization",
+      "Interactive charts and dashboard analytics",
+      "Responsive UI with Tailwind CSS and Lottie animations",
+      "Booking history and payment records for employees",
+      "Custom notifications and beautiful alerts"
+    ],
+    "techStacks": {
+      "frontend": [
+        "React",
+        "Vite",
+        "React Router",
+        "Tailwind CSS",
+        "Lottie",
+        "React Query",
+        "SweetAlert2",
+        "React Hot Toast"
+      ],
+      "backend": ["Node.js", "Express", "MongoDB", "Firebase Admin", "Stripe"],
+      "tools": ["ESLint", "Axios", "CORS", "dotenv"]
+    },
+    "challenges": [
+      "Implementing secure role-based authentication and route protection across multiple user types",
+      "Integrating Stripe payment processing with real-time payroll calculations",
+      "Optimizing MongoDB queries for large employee datasets and payroll records",
+      "Ensuring data consistency across different user dashboards and access levels"
+    ],
+    "futurePlans": [
+      "Implement advanced reporting and analytics dashboard",
+      "Add multi-language support for international companies",
+      "Implement AI-powered payroll insights and recommendations"
+    ],
+    "demoUrl": "http://paynode-2025.web.app",
+    "githubUrl": "https://github.com/Purab2001/Paynode_client"
+  },
+  {
+    "id": "repair-right",
+    "title": "RepairRight",
+    "images": [
+      "/projects/project2.png",
+      "/projects/project2-2.png",
+      "/projects/project2-3.png",
+      "/projects/project2-4.png",
+      "/projects/project2-5.png"
+    ],
+    "overview": "RepairRight is a comprehensive, full-stack home repair and service booking platform that connects homeowners with trusted professionals. It offers seamless booking, management, and tracking of home repair services with real-time updates and secure authentication.",
+    "features": [
+      "Firebase Authentication with email/password and Google sign-in",
+      "JWT-based API security and role-based access control",
+      "Service management with CRUD operations and advanced search",
+      "One-click booking and real-time status tracking",
+      "Booking history for customers and providers",
+      "Responsive design with dark/light theme and smooth animations",
+      "Custom notifications and loading states",
+      "Popular services dashboard and provider profiles",
+      "SEO-friendly dynamic page titles and custom error pages"
+    ],
+    "techStacks": {
+      "frontend": [
+        "React",
+        "Vite",
+        "React Router",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Framer Motion"
+      ],
+      "backend": ["Node.js", "Express", "MongoDB", "Firebase Admin"],
+      "tools": ["ESLint", "Axios", "CORS", "dotenv"]
+    },
+    "challenges": [
+      "Implementing secure JWT authentication with Firebase integration",
+      "Building responsive search and filtering for large service catalogs",
+      "Ensuring smooth theme transitions and animations without performance impact",
+      "Handling edge cases in booking conflicts and cancellations"
+    ],
+    "futurePlans": [
+      "Add GPS tracking for service providers",
+      "Implement rating and review system for service quality",
+      "Add payment gateway integration for seamless transactions",
+      "Implement push notifications for booking updates"
+    ],
+    "demoUrl": "https://repair-right-1a8c9.web.app",
+    "githubUrl": "https://github.com/Purab2001/RepairRight-client"
+  },
+  {
+    "id": "hobbyhub",
+    "title": "HobbyHub",
+    "images": [
+      "/projects/project3.png",
+      "/projects/project3-2.png",
+      "/projects/project3-3.png",
+      "/projects/project3-4.png",
+      "/projects/project3-5.png"
+    ],
+    "overview": "HobbyHub is a full-stack web application that connects people through shared interests. Users can discover, join, and manage hobby groups, interact with like-minded enthusiasts, and share experiences.",
+    "features": [
+      "Discover and join hobby groups",
+      "Create and manage communities",
+      "Comment, like, and interact in real time",
+      "Personalized dashboard for group and profile management",
+      "Responsive design with light/dark theme",
+      "Smooth animations and error handling",
+      "Firebase authentication and real-time database",
+      "REST API for group management"
+    ],
+    "techStacks": {
+      "frontend": [
+        "React 19.1",
+        "Vite 6.3.5",
+        "Tailwind CSS 4.1.8",
+        "React Router 7.6.1",
+        "Lottie",
+        "React Icons",
+        "Framer Motion"
+      ],
+      "backend": [
+        "Node.js/Express",
+        "MongoDB (Atlas)",
+        "Firebase (Auth, Hosting, Realtime DB)",
+        "Vercel (Server deployment)"
+      ]
+    },
+    "challenges": [
+      "Managing state consistency between Firebase Realtime Database and MongoDB",
+      "Handling complex user permissions and group management features"
+    ],
+    "futurePlans": [
+      "Implement event scheduling and calendar integration",
+      "Implement location-based group discovery for local meetups"
+    ],
+    "demoUrl": "https://hobbyhub-19bff.web.app",
+    "githubUrl": "https://github.com/Purab2001/HobbyHub_Client"
+  }
+]
