@@ -1,4 +1,10 @@
 export default async function handler(req, res) {
+  console.log('[send-email] ENV loaded:', {
+    serviceId: !!process.env.EMAILJS_SERVICE_ID,
+    templateId: !!process.env.EMAILJS_TEMPLATE_ID,
+    publicKey: !!process.env.EMAILJS_PUBLIC_KEY,
+    privateKey: !!process.env.EMAILJS_PRIVATE_KEY
+  });
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ ok: false, error: 'Method not allowed' });
@@ -9,8 +15,12 @@ export default async function handler(req, res) {
   const publicKey = process.env.EMAILJS_PUBLIC_KEY;
   const privateKey = process.env.EMAILJS_PRIVATE_KEY;
 
-  if (!serviceId || !templateId || !publicKey || !privateKey) {
-    return res.status(500).json({ ok: false, error: 'EmailJS is not configured on the server.' });
+  const missing = [ 'EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', 'EMAILJS_PUBLIC_KEY', 'EMAILJS_PRIVATE_KEY' ]
+    .filter((k) => !process.env[k]);
+
+  if (missing.length) {
+    console.error('Missing EmailJS env vars:', missing.join(', '));
+    return res.status(500).json({ ok: false, error: 'Server missing EmailJS config: ' + missing.join(', ') });
   }
 
   let body;
