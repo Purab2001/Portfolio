@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Case Study | A.S. Purab</title>
+  <link rel="icon" href="assets/logo.png" />
+
+  <!-- Google Fonts Connection -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Prevent theme flash on reload
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            border: 'hsl(var(--border))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+            card: 'hsl(var(--card))',
+            secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+            'muted-foreground': 'hsl(var(--muted-foreground))',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+          },
+          keyframes: {
+            'pulse-subtle': { '0%,100%': { opacity: 1 }, '50%': { opacity: 0.8 } },
+          },
+          animation: { 'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite' },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="relative min-h-screen bg-background text-foreground font-sans">
+    <div id="star-background" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
+    
+    <!-- Back Button Container: Aligned with Content Bounds -->
+    <div class="max-w-7xl mx-auto px-6 md:px-8 pt-8 relative z-20">
+      <button id="back-btn" class="p-3 rounded-full bg-card/60 backdrop-blur-md border border-border/40 shadow-lg text-foreground hover:scale-110 hover:border-primary/45 transition duration-300 cursor-pointer flex items-center justify-center" aria-label="Back to Home" type="button">
+        <span id="back-icon" class="flex items-center justify-center"></span>
+      </button>
+    </div>
+
+    <!-- Main Case Study Content Container -->
+    <main id="content" class="relative z-10 max-w-7xl mx-auto pt-6 pb-20 px-6 md:px-8"></main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="icons.js"></script>
+  <script src="project-details.js"></script>
+</body>
+</html>

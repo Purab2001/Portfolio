@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A.S. Purab | Full Stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Abir Shahadat Purab, a professional Full Stack Developer specializing in React, Node.js, Express, and React." />
+  <link rel="icon" href="assets/logo.png" />
+
+  <!-- Google Fonts Connection -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Prevent theme flash on reload
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            border: 'hsl(var(--border))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+            card: 'hsl(var(--card))',
+            secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+            'muted-foreground': 'hsl(var(--muted-foreground))',
+            input: 'hsl(var(--input))',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+          },
+          keyframes: {
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            'pulse-subtle': { '0%,100%': { opacity: 1 }, '50%': { opacity: 0.8 } },
+            'fade-in': { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
+            meteor: { '0%': { transform: 'rotate(215deg) translateX(0)', opacity: 1 }, '70%': { opacity: 1 }, '100%': { transform: 'rotate(215deg) translateX(-500px)', opacity: 0 } },
+            'scale-in': { from: { transform: 'scale(0)', opacity: 0 }, to: { transform: 'scale(1)', opacity: 1 } },
+            'bounce-gentle': { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+            'slide-left': { from: { opacity: 0, transform: 'translateX(-20px)' }, to: { opacity: 1, transform: 'translateX(0)' } },
+            'slide-right': { from: { opacity: 0, transform: 'translateX(20px)' }, to: { opacity: 1, transform: 'translateX(0)' } },
+            glow: { '0%,100%': { 'text-shadow': '0 0 5px currentColor' }, '50%': { 'text-shadow': '0 0 14px currentColor' } },
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite',
+            'fade-in': 'fade-in 0.7s ease-out forwards',
+            'fade-in-delay-1': 'fade-in 0.7s ease-out 0.2s forwards',
+            'fade-in-delay-2': 'fade-in 0.7s ease-out 0.4s forwards',
+            'fade-in-delay-3': 'fade-in 0.7s ease-out 0.6s forwards',
+            'fade-in-delay-4': 'fade-in 0.7s ease-out 0.8s forwards',
+            'meteor': 'meteor 5s linear infinite',
+            'scale-in': 'scale-in 0.4s ease-out forwards',
+            'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+            'slide-left': 'slide-left 0.6s ease-out forwards',
+            'slide-right': 'slide-right 0.6s ease-out forwards',
+            'glow': 'glow 2s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <!-- Star Background -->
+    <div id="star-background" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar"
+      class="fixed w-full z-[10000] transition-all duration-500 ease-out py-4 bg-transparent px-6 md:px-8 border-b border-transparent">
+      <div class="container mx-auto max-w-7xl flex items-center justify-between">
+        <a class="relative group flex items-center transition-all duration-300 hover:scale-105" href="#hero">
+          <div class="relative flex items-center gap-2">
+            <img src="assets/logo.png" alt="A.S.Purab Logo" class="h-6 w-auto transition-transform duration-300 group-hover:rotate-12" />
+            <span class="font-bold text-lg md:text-3xl tracking-wide">ASP</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-3 md:gap-4 z-50">
+          <div id="nav-desktop"
+            class="hidden lg:flex items-center gap-1 bg-card/40 backdrop-blur-md rounded-full p-1.5 border border-border/20">
+          </div>
+
+          <button id="theme-toggle-btn"
+            class="relative p-2.5 rounded-full transition-all duration-300 bg-card/40 backdrop-blur-md border border-border/20 text-foreground hover:scale-115 cursor-pointer flex items-center justify-center"
+            aria-label="Toggle Theme">
+            <span id="theme-toggle-icon" class="flex items-center justify-center"></span>
+          </button>
+
+          <button id="nav-menu-btn"
+            class="lg:hidden relative p-3 rounded-full transition-all duration-300 bg-card/20 backdrop-blur-sm"
+            aria-label="Open Menu">
+            <span id="nav-menu-icon"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Progress Indicator -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-background/20 z-40">
+      <div id="scroll-progress" class="h-full bg-linear-to-r from-primary to-primary/60 transition-all duration-300 ease-out" style="width:0%"></div>
+    </div>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0 px-6 md:px-8">
+        <!-- Interactive Background Glows -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+          <div id="hero-shape-1" class="absolute w-[30rem] h-[30rem] bg-gradient-to-tr from-primary/20 to-purple-500/10 rounded-full blur-3xl animate-float" style="top:10%;right:15%"></div>
+          <div id="hero-shape-2" class="absolute w-[20rem] h-[20rem] bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-full blur-3xl animate-pulse-subtle" style="bottom:15%;left:10%"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.22),rgba(0,0,0,0))]"></div>
+        </div>
+
+        <div class="container mx-auto z-10 max-w-7xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[85vh]">
+            <div class="lg:col-span-7 space-y-6 text-left">
+              <!-- Available Status Badge -->
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-semibold tracking-wide uppercase opacity-0 animate-fade-in">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Available for Opportunities
+              </div>
+
+              <!-- Header Text -->
+              <div class="space-y-3">
+                <h1 class="space-y-1">
+                  <div class="opacity-0 animate-fade-in-delay-1">
+                    <span class="block text-2xl md:text-3xl font-light text-foreground/80">Hi, I'm</span>
+                  </div>
+                  <div class="opacity-0 animate-fade-in-delay-2">
+                    <span class="block text-4xl md:text-6xl lg:text-7xl font-extrabold text-gradient leading-tight tracking-tight">Abir Shahadat Purab</span>
+                  </div>
+                  <div class="opacity-0 animate-fade-in-delay-3">
+                    <span class="block text-2xl md:text-4xl font-bold text-foreground/90">
+                      Crafting <span id="hero-typing" class="text-primary border-r-2 border-primary/60 pr-1">MERN Stack</span> applications
+                    </span>
+                  </div>
+                </h1>
+              </div>
+
+              <!-- Description -->
+              <div class="max-w-2xl opacity-0 animate-fade-in-delay-4">
+                <p class="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+                  I specialize in building scalable, secure, and modern full-stack web applications with React, Node.js, and React. Passionate about beautiful interfaces and performance optimization.
+                </p>
+                <div class="flex flex-wrap gap-2.5 mb-8">
+                  <span class="px-3 py-1.5 bg-card/60 backdrop-blur-md text-foreground/80 rounded-full text-xs font-medium border border-border/40 hover:border-primary/40 hover:text-primary transition-all duration-300">React</span>
+                  <span class="px-3 py-1.5 bg-card/60 backdrop-blur-md text-foreground/80 rounded-full text-xs font-medium border border-border/40 hover:border-primary/40 hover:text-primary transition-all duration-300">Next.js</span>
+                  <span class="px-3 py-1.5 bg-card/60 backdrop-blur-md text-foreground/80 rounded-full text-xs font-medium border border-border/40 hover:border-primary/40 hover:text-primary transition-all duration-300">Node.js</span>
+                  <span class="px-3 py-1.5 bg-card/60 backdrop-blur-md text-foreground/80 rounded-full text-xs font-medium border border-border/40 hover:border-primary/40 hover:text-primary transition-all duration-300">PostgreSQL</span>
+                  <span class="px-3 py-1.5 bg-card/60 backdrop-blur-md text-foreground/80 rounded-full text-xs font-medium border border-border/40 hover:border-primary/40 hover:text-primary transition-all duration-300">TypeScript</span>
+                </div>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-delay-4">
+                <a href="#projects" class="cosmic-button group flex items-center gap-3 justify-center w-full sm:w-auto">
+                  <span id="hero-zap"></span><span>View My Work</span>
+                </a>
+                <a href="#contact" class="btn-secondary group flex items-center gap-3 justify-center w-full sm:w-auto">
+                  <span id="hero-code2"></span><span>Let's Connect</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Avatar Block -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end">
+              <div class="relative group">
+                <div class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-purple-500/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-700"></div>
+                <div class="absolute -top-3 -right-3 w-28 h-28 border-2 border-primary/20 rounded-full animate-pulse-subtle"></div>
+                <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-primary/20 rounded-full blur-md animate-float"></div>
+                
+                <div class="relative bg-card/40 backdrop-blur-md rounded-3xl p-3 border border-border/40 shadow-2xl opacity-0 animate-fade-in-delay-2 mb-8 md:mb-0 transform transition-all duration-500 group-hover:scale-[1.01]">
+                  <img src="assets/Picture.png" alt="Abir Shahadat Purab"
+                    class="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl border border-border/50 transition-all duration-500 group-hover:border-primary/30" />
+                  
+                  <!-- Floating Overlays -->
+                  <div class="absolute -top-5 -right-5 p-3.5 bg-card border border-border/50 rounded-2xl shadow-lg animate-bounce-gentle flex items-center justify-center">
+                    <span id="hero-sparkles"></span>
+                  </div>
+                  <div class="absolute -bottom-5 -left-5 p-3.5 bg-card border border-border/50 rounded-2xl shadow-lg animate-float flex items-center justify-center">
+                    <span id="hero-code2-2"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in-delay-4 cursor-pointer" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
+          <span class="text-xs text-muted-foreground mb-2 font-medium tracking-widest uppercase">Scroll Down</span>
+          <div class="w-5 h-9 border-2 border-muted-foreground/45 rounded-full flex justify-center relative overflow-hidden">
+            <div class="w-1 h-2 bg-primary rounded-full mt-1.5 animate-bounce"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="relative py-24 px-6 md:px-8 border-b border-border/10">
+        <div class="container mx-auto max-w-7xl relative z-10">
+          <div class="mb-16 text-center">
+            <div class="inline-flex items-center gap-3 mb-4">
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-r from-transparent to-primary"></div>
+              <span class="text-xs md:text-sm font-semibold tracking-widest uppercase text-primary">About Me</span>
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-l from-transparent to-primary"></div>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Professional <span class="text-gradient">Background</span></h2>
+          </div>
+          <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+            <div class="space-y-6">
+              <h3 class="text-2xl font-bold">Full Stack Developer & Tech Enthusiast</h3>
+              <p class="leading-relaxed text-muted-foreground text-base md:text-lg">
+                My programming journey began with curiosity and a passion for solving real-world problems. I specialize in building dynamic MERN stack
+                applications, optimizing backend engines, and delivering engaging frontend experiences. I thrive in collaborative environments where innovation, code quality, and performance are prioritized.<br /><br />
+                Outside of coding, I enjoy reading books, exploring new games, and watching sports. These interests fuel my creativity and bring fresh perspectives to my engineering work.
+              </p>
+              
+              <!-- Metrics Grid -->
+              <div class="grid grid-cols-3 gap-4 py-6 border-y border-border/40 mt-8 mb-8 text-center md:text-left">
+                <div>
+                  <div class="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">3+</div>
+                  <div class="text-xs md:text-sm text-muted-foreground mt-1 font-medium">Years Coding</div>
+                </div>
+                <div>
+                  <div class="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">15+</div>
+                  <div class="text-xs md:text-sm text-muted-foreground mt-1 font-medium">Projects Built</div>
+                </div>
+                <div>
+                  <div class="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">10+</div>
+                  <div class="text-xs md:text-sm text-muted-foreground mt-1 font-medium">Tools Mastered</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-4 pt-2">
+                <a href="#contact" class="cosmic-button">Get In Touch</a>
+                <a href="https://drive.google.com/uc?export=download&id=1W8qPuVGPiei-FxNkIHyhPjw7GC4V2Bb1" target="_blank" rel="noopener noreferrer"
+                  class="btn-secondary">Download Resume</a>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-6">
+              <!-- Services / Focus areas as glow cards -->
+              <div class="glow-card p-6 rounded-2xl flex items-start gap-4">
+                <div class="p-3.5 rounded-xl bg-primary/10 text-primary flex-shrink-0"><span id="about-code"></span></div>
+                <div class="text-left">
+                  <h4 class="text-lg font-bold mb-1.5 text-foreground">Web Development</h4>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Creating highly responsive websites and web applications with modern frontend frameworks and custom styling.</p>
+                </div>
+              </div>
+              <div class="glow-card p-6 rounded-2xl flex items-start gap-4">
+                <div class="p-3.5 rounded-xl bg-primary/10 text-primary flex-shrink-0"><span id="about-user"></span></div>
+                <div class="text-left">
+                  <h4 class="text-lg font-bold mb-1.5 text-foreground">AI Collaboration & Prompts</h4>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Leveraging generative AI tools and expert prompt engineering to draft, debug, and optimize projects efficiently.</p>
+                </div>
+              </div>
+              <div class="glow-card p-6 rounded-2xl flex items-start gap-4">
+                <div class="p-3.5 rounded-xl bg-primary/10 text-primary flex-shrink-0"><span id="about-brief"></span></div>
+                <div class="text-left">
+                  <h4 class="text-lg font-bold mb-1.5 text-foreground">Project Management</h4>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Coordinating product lifecycles from ideation to deployment using agile workflows and collaboration tools.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section-modern bg-linear-to-b from-background to-secondary/20 py-12 sm:py-16 md:py-24 px-6 md:px-8">
+        <div class="container mx-auto max-w-7xl relative z-10">
+          <div class="text-center mb-12 sm:mb-16 md:mb-20">
+            <div class="inline-flex items-center gap-3 mb-6">
+              <div class="w-8 sm:w-12 h-[2px] bg-linear-to-r from-transparent to-primary"></div>
+              <span class="text-primary font-medium tracking-wider uppercase text-xs sm:text-sm">Technical Skills</span>
+              <div class="w-8 sm:w-12 h-[2px] bg-linear-to-l from-transparent to-primary"></div>
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">My Tech<span class="text-gradient"> Arsenal</span></h2>
+            <p class="text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed px-4">
+              A comprehensive toolkit of modern technologies and frameworks that I use to build exceptional digital experiences.
+            </p>
+          </div>
+          <div id="skill-filters" class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 sm:mb-16 px-2"></div>
+          <div id="skills-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16"></div>
+        </div>
+        <div class="absolute top-16 sm:top-32 left-4 sm:left-10 w-16 sm:w-20 h-16 sm:h-20 bg-primary/10 rounded-full blur-2xl animate-pulse-subtle"></div>
+        <div class="absolute bottom-16 sm:bottom-32 right-4 sm:right-10 w-20 sm:w-32 h-20 sm:h-32 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+      </section>
+
+      <!-- TIMELINE (EDUCATION & EXPERIENCE) -->
+      <section id="education" class="relative py-24 px-6 md:px-8 border-b border-border/10">
+        <div class="container mx-auto max-w-7xl relative z-10">
+          <div class="text-center mb-20">
+            <div class="inline-flex items-center gap-3 mb-4">
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-r from-transparent to-primary"></div>
+              <span class="text-xs md:text-sm font-semibold tracking-widest uppercase text-primary">Journey & Milestones</span>
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-l from-transparent to-primary"></div>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Education & <span class="text-gradient">Experience</span></h2>
+          </div>
+
+          <div class="relative">
+            <!-- Timeline Center Line -->
+            <div class="timeline-line"></div>
+
+            <!-- Milestone 1 (Freelancing / Full-Stack Development) -->
+            <div class="relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-8 mb-16 items-center pl-10 md:pl-0">
+              <div class="order-1 md:order-none flex justify-start md:justify-end md:pr-6 md:col-start-1 md:row-start-1">
+                <span class="inline-flex px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">2024 - Present</span>
+              </div>
+              <div class="timeline-node animate-pulse absolute md:relative left-[1.5rem] md:left-auto top-[68px] md:top-auto md:col-start-2 md:row-start-1 -translate-x-1/2 md:translate-x-0"></div>
+              <div class="order-2 md:order-none glow-card p-6 rounded-2xl text-left md:col-start-3 md:row-start-1 w-full">
+                <h3 class="text-xl font-bold text-foreground">Freelance Full-Stack Developer</h3>
+                <h4 class="text-sm font-semibold text-primary/80 mt-1 mb-3">Self-Employed • Remote</h4>
+                <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Designing and deploying secure, end-to-end full-stack web applications for global clients. Focused on clean MERN architecture, payment systems (Stripe), and modern cloud infrastructure (Firebase, Vercel).
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 bg-primary/5 text-primary text-xs rounded-md font-semibold border border-primary/10">REST APIs</span>
+                  <span class="px-2.5 py-1 bg-primary/5 text-primary text-xs rounded-md font-semibold border border-primary/10">Secure Auth</span>
+                  <span class="px-2.5 py-1 bg-primary/5 text-primary text-xs rounded-md font-semibold border border-primary/10">Stripe Pay</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 2 (Paynode, RepairRight, HobbyHub Projects) -->
+            <div class="relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-8 mb-16 items-center pl-10 md:pl-0">
+              <div class="order-1 md:order-none flex justify-start md:pl-6 md:col-start-3 md:row-start-1">
+                <span class="inline-flex px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">2023 - 2024</span>
+              </div>
+              <div class="timeline-node absolute md:relative left-[1.5rem] md:left-auto top-[68px] md:top-auto md:col-start-2 md:row-start-1 -translate-x-1/2 md:translate-x-0"></div>
+              <div class="order-2 md:order-none glow-card p-6 rounded-2xl text-left md:text-left md:col-start-1 md:row-start-1 w-full">
+                <h3 class="text-xl font-bold text-foreground">Full-Stack Project Development</h3>
+                <h4 class="text-sm font-semibold text-primary/80 mt-1 mb-3">Independent Engineering</h4>
+                <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Engineered large-scale, production-ready MERN stacks. Successfully developed Paynode (automated payroll dashboard), RepairRight (home service booking platform), and HobbyHub (social matching communities).
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 bg-primary/5 text-primary text-xs rounded-md font-semibold border border-primary/10">React Router</span>
+                  <span class="px-2.5 py-1 bg-primary/5 text-primary text-xs rounded-md font-semibold border border-primary/10">React Aggregation</span>
+                  <span class="px-2.5 py-1 bg-primary/5 text-primary text-xs rounded-md font-semibold border border-primary/10">Real-time DB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 3 (National University English Honours) -->
+            <div class="relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-8 mb-16 items-center pl-10 md:pl-0">
+              <div class="order-1 md:order-none flex justify-start md:justify-end md:pr-6 md:col-start-1 md:row-start-1">
+                <span class="inline-flex px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">2021 - 2026 (Expected)</span>
+              </div>
+              <div class="timeline-node absolute md:relative left-[1.5rem] md:left-auto top-[68px] md:top-auto md:col-start-2 md:row-start-1 -translate-x-1/2 md:translate-x-0"></div>
+              <div class="order-2 md:order-none glow-card p-6 rounded-2xl text-left md:col-start-3 md:row-start-1 w-full">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-xl font-bold text-foreground">Bachelor's in English Honours</h3>
+                  <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Active Student</span>
+                </div>
+                <h4 class="text-sm font-semibold text-primary/80 mt-1 mb-3">Mohammadpur Kendriya College • National University</h4>
+                <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Developing high-level analytical skills, critical thinking, advanced writing, and professional communications. Bridging humanities insights with engineering problem-solving methodologies.
+                </p>
+                <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-border/30 text-xs">
+                  <div class="flex items-center gap-2 text-muted-foreground"><span id="edu-star2"></span><span>Advanced Communication</span></div>
+                  <div class="flex items-center gap-2 text-muted-foreground"><span id="edu-star3"></span><span>Analytical Research</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="py-24 px-6 md:px-8 border-b border-border/10">
+        <div class="container mx-auto max-w-7xl relative z-10">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-3 mb-4">
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-r from-transparent to-primary"></div>
+              <span class="text-xs md:text-sm font-semibold tracking-widest uppercase text-primary">Featured Works</span>
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-l from-transparent to-primary"></div>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Recent <span class="text-gradient">Projects</span></h2>
+            <p class="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
+              A curated selection of recent full-stack applications, highlighting architecture, dynamic features, and user-centric designs.
+            </p>
+          </div>
+          <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+          <div class="text-center mt-14">
+            <a class="cosmic-button w-fit flex items-center mx-auto gap-2 hover:scale-105 transition-transform duration-300" target="_blank" href="https://github.com/Purab2001">Check My GitHub <span id="proj-arrow"></span></a>
+          </div>
+        </div>
+      </section>      <!-- CONTACT -->
+      <section id="contact" class="py-24 px-6 md:px-8 bg-card/10 border-b border-border/10">
+        <div class="container mx-auto max-w-7xl relative z-10">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-3 mb-4">
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-r from-transparent to-primary"></div>
+              <span class="text-xs md:text-sm font-semibold tracking-widest uppercase text-primary">Contact Me</span>
+              <div class="w-8 md:w-12 h-[2px] bg-gradient-to-l from-transparent to-primary"></div>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Get In <span class="text-gradient">Touch</span></h2>
+            <p class="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
+              Have a project in mind, a freelance opportunity, or just want to say hello? Drop me a message and I'll get back to you shortly.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:items-center">
+            <!-- Contact Info Cards -->
+            <div class="lg:col-span-5 space-y-6 w-full flex flex-col">
+              <h3 class="text-2xl font-bold mb-2 text-left">Contact Information</h3>
+              <div class="space-y-4 w-full">
+                <!-- Email Card -->
+                <div class="glow-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer" onclick="window.location.href='mailto:a.s.purab0@gmail.com'">
+                  <div class="p-3 rounded-xl bg-primary/10 text-primary flex-shrink-0"><span id="con-mail"></span></div>
+                  <div class="text-left">
+                    <h4 class="font-bold text-sm text-muted-foreground uppercase tracking-wider">Email Address</h4>
+                    <span class="text-base font-semibold text-foreground hover:text-primary transition-colors block mt-0.5">a.s.purab0@gmail.com</span>
+                  </div>
+                </div>
+
+                <!-- Phone Card -->
+                <div class="glow-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer" onclick="window.location.href='tel:+8801626868986'">
+                  <div class="p-3 rounded-xl bg-primary/10 text-primary flex-shrink-0"><span id="con-phone"></span></div>
+                  <div class="text-left flex-1">
+                    <h4 class="font-bold text-sm text-muted-foreground uppercase tracking-wider">Phone / WhatsApp</h4>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="text-base font-semibold text-foreground hover:text-primary transition-colors">+880 1626-868986</span>
+                      <a href="https://wa.me/8801626868986" target="_blank" rel="noopener noreferrer" class="text-emerald-500 hover:text-emerald-600 ml-1.5" title="Chat on WhatsApp" onclick="event.stopPropagation();">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.77-1.68-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47 0 1.45 1.06 2.86 1.2 3.06.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.12.56-.08 1.76-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12 2a10 10 0 0 0-8.6 15.06L2 22l5.04-1.32A10 10 0 1 0 12 2z"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="glow-card p-5 rounded-2xl flex items-center gap-4">
+                  <div class="p-3 rounded-xl bg-primary/10 text-primary flex-shrink-0"><span id="con-pin"></span></div>
+                  <div class="text-left">
+                    <h4 class="font-bold text-sm text-muted-foreground uppercase tracking-wider">Location</h4>
+                    <span class="text-base font-semibold text-foreground block mt-0.5">Dhaka, Bangladesh</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="pt-6 w-full text-left">
+                <h4 class="font-bold text-base text-foreground mb-4">Connect With Me</h4>
+                <div class="flex gap-3">
+                  <a href="https://linkedin.com/in/a-s-purab" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-card border border-border rounded-xl text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.9H5.67v8.44h2.67zM7 8.6a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.74v-4.63c0-2.47-1.32-3.62-3.08-3.62-1.42 0-2.06.78-2.42 1.33V9.9h-2.67c.04.75 0 8.44 0 8.44h2.67v-4.71c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.53h2.7z"/></svg>
+                  </a>
+                  <a href="https://x.com/A_S_Purab" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-card border border-border rounded-xl text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.96 6.82H1.69l7.73-8.84L1.25 2.25h6.82l4.71 6.23 5.46-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05l12.03 15.64z"/></svg>
+                  </a>
+                  <a href="https://github.com/Purab2001" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-card border border-border rounded-xl text-muted-foreground hover:text-primary hover:border-primary/40 hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Block -->
+            <div class="lg:col-span-7 bg-card border border-border/80 p-6 md:p-8 rounded-3xl shadow-sm w-full flex flex-col">
+              <h3 class="text-2xl font-bold mb-6 text-left">Send a Message</h3>
+              <form id="contact-form" class="space-y-5 w-full">
+                <div class="text-left">
+                  <label for="name" class="block text-sm font-semibold mb-2 text-foreground/80">Your Name</label>
+                  <input type="text" id="name" name="name" required class="form-input" placeholder="Enter your full name" />
+                </div>
+                <div class="text-left">
+                  <label for="email" class="block text-sm font-semibold mb-2 text-foreground/80">Your Email</label>
+                  <input type="email" id="email" name="email" required class="form-input" placeholder="name@company.com" />
+                </div>
+                <div class="text-left">
+                  <label for="message" class="block text-sm font-semibold mb-2 text-foreground/80">Your Message</label>
+                  <textarea id="message" name="message" required rows="4" class="form-input resize-none" placeholder="Let's talk about my project..."></textarea>
+                </div>
+                <input type="hidden" name="time" id="form-time" value="" />
+                <button type="submit" id="contact-submit" class="cosmic-button w-full mt-2 cursor-pointer flex items-center justify-center gap-2">
+                  <span>Send Message</span><span id="con-send"></span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <div class="bg-card">
+      <footer class="py-12 container mx-auto max-w-7xl relative mt-12 pt-8 flex flex-wrap justify-between items-center">
+        <p class="text-sm text-muted-foreground">&copy; 2025 A.S.Purab. All rights reserved.</p>
+        <a href="#hero" class="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors"><span id="foot-up"></span></a>
+      </footer>
+    </div>
+
+    <!-- Simple toast container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-100 flex flex-col gap-3"></div>
+
+    <!-- Mobile Navigation Drawer Overlay (True full-screen fixed viewport) -->
+    <div id="nav-mobile"
+      class="lg:hidden fixed inset-0 z-[9999] transition-all duration-500 opacity-0 pointer-events-none w-screen h-screen">
+      <div class="absolute inset-0" style="background-color: hsl(var(--background) / 1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);" id="nav-mobile-backdrop"></div>
+      <div class="relative flex flex-col items-center justify-center h-full w-full">
+        <div id="nav-mobile-items" class="flex flex-col items-center gap-6 text-center z-10"></div>
+        <div class="absolute top-20 left-20 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse-subtle"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-float"></div>
+      </div>
+    </div>
+  </div>
+
+<script src="data.js"></script>
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
