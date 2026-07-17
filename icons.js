@@ -39,11 +39,3 @@ window.Icons = (function () {
     Trophy: (c) => svg('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 2h12v7a6 6 0 0 1-12 0V2zM9 21h6M12 15v6"/>', c),
   };
 })();
-
-// react-icons equivalents used in SkillIcon + social links
-window.ReactIcons = {
-  SiAxios: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#5A29E4" width="100%" height="100%" style="width:100%;height:100%"><path d="M3 3h18v18H3z" opacity="0"/><path fill="#5A29E4" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.5a6.5 6.5 0 0 1 5.3 10.2l-2.6-2.6A3 3 0 0 0 9.4 9.3l-2.6-2.6A6.5 6.5 0 0 1 12 5.5z"/></svg>',
-  SiStripe: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#635BFF" width="100%" height="100%" style="width:100%;height:100%"><path fill="#635BFF" d="M13.5 8.3c0-.4.3-.6.8-.6 1.3 0 3 .5 4.3 1.3V5.4A11 11 0 0 0 14.3 4.6c-2.9 0-4.9 1.5-4.9 4 0 3.7 5 3.1 5 4.7 0 .5-.4.7-1 .7-1.2 0-2.9-.6-4.2-1.5v3.4c1.4.6 2.9.9 4.2.9 3 0 5-1.5 5-4 0-3.9-5.2-3.3-5.2-4.7z"/></svg>',
-  SiDocker: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2496ED" width="100%" height="100%" style="width:100%;height:100%"><path fill="#2496ED" d="M22 9.5c-.5-.3-1.6-.6-2.9-.4-.2-1-.8-1.8-1.7-2.4l-.6-.4-.4.6c-.5.8-.7 2-.4 3-.1.3-.4.6-.9.9-3 1.3-7.2.9-9.5-.9-.5 0-1 .1-1.7.4-1.5.7-2.4 2-2.4 3.9 0 .2 0 .5.1.7-1.4.9-2.3 2.4-2.3 4.1 0 2.7 2.2 4.9 4.9 4.9h13.2c2.7 0 4.9-2.2 4.9-4.9 0-1.7-.9-3.3-2.3-4.1.1-.3.1-.5.1-.8 0-.7-.2-1.4-.6-2zM5 12.5h-1.6v1.6H5zm2 0H5.4v1.6H7zm2 0H7.4v1.6H9zm2 0H9.4v1.6h1.6zm2 0h-1.6v1.6H13zm2 0h-1.6v1.6h1.6zm-9 2.7H4.4V17H6zm2 0H6.4V17H8zm2 0H8.4V17h1.6zm2 0h-1.6V17H12zm2 0h-1.6V17h1.6zm2-2.7h-1.6v1.6H16zm2 0h-1.6v1.6H18z"/></svg>',
-  SiDaisyui: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%" style="width:100%;height:100%"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>',
-};

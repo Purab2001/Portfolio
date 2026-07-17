@@ -281,7 +281,9 @@
     { id: 'all', label: 'All Skills', icon: 'Star', color: 'from-purple-500 to-pink-500' },
     { id: 'frontend', label: 'Frontend', icon: 'Code', color: 'from-blue-500 to-cyan-500' },
     { id: 'backend', label: 'Backend', icon: 'Database', color: 'from-green-500 to-emerald-500' },
-    { id: 'tools', label: 'Tools', icon: 'Wrench', color: 'from-orange-500 to-red-500' },
+    { id: 'database', label: 'Database', icon: 'Database', color: 'from-amber-500 to-yellow-500' },
+    { id: 'apis', label: 'APIs & Services', icon: 'Wrench', color: 'from-teal-500 to-cyan-500' },
+    { id: 'devops', label: 'DevOps & Tools', icon: 'Wrench', color: 'from-orange-500 to-red-500' },
   ];
   let activeCategory = 'all';
   const skillFilters = document.getElementById('skill-filters');
@@ -310,6 +312,15 @@
     return { count: list.length, avgLevel: avg };
   };
 
+  const categoryLabels = {
+    frontend: 'Frontend',
+    backend: 'Backend',
+    database: 'Database',
+    apis: 'APIs & Services',
+    devops: 'DevOps & Tools',
+  };
+  const categoryLabel = (cat) => categoryLabels[cat] || cat;
+
   const skillIconHtml = (skill) => {
     if (!skill.icon) return '';
     if (skill.icon.indexOf('.') !== -1) {
@@ -336,7 +347,7 @@
       const levelLabel = skill.level >= 90 ? 'Expert' : skill.level >= 80 ? 'Advanced' : skill.level >= 70 ? 'Intermediate' : 'Beginner';
       card.innerHTML =
         '<div class="flex items-center gap-2.5 md:gap-3.5 mb-3 md:mb-4 relative z-10"><div class="relative"><div class="w-9 h-9 md:w-11 md:h-11 bg-primary/10 rounded-lg md:rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">' + skillIconHtml(skill) + '</div>' + award + '</div>' +
-        '<div class="flex-1 text-left"><h3 class="font-bold text-xs sm:text-sm md:text-base text-foreground group-hover:text-primary transition-colors duration-300">' + skill.name + '</h3><span class="text-[9px] md:text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">' + skill.category + '</span></div></div>' +
+        '<div class="flex-1 text-left"><h3 class="font-bold text-xs sm:text-sm md:text-base text-foreground group-hover:text-primary transition-colors duration-300">' + skill.name + '</h3><span class="text-[9px] md:text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">' + categoryLabel(skill.category) + '</span></div></div>' +
         '<div class="relative flex items-center justify-center my-4 md:my-6 relative z-10"><svg class="transform -rotate-90 w-22 h-22 sm:w-26 sm:h-26 md:w-32 md:h-32" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="6" fill="transparent" class="text-primary/5 dark:text-primary/10"/><circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="' + circ + '" stroke-dashoffset="' + offset + '" class="text-primary transition-all duration-1000 ease-out circular-progress-ring" style="transition-delay:' + (index * 0.05) + 's"/></svg>' +
         '<div class="absolute inset-0 flex flex-col items-center justify-center"><span class="text-sm sm:text-base md:text-lg font-extrabold text-foreground group-hover:text-primary transition-colors duration-300">' + skill.level + '%</span><span class="text-[8px] sm:text-[9px] md:text-[10px] text-muted-foreground uppercase font-bold tracking-wider mt-0.5">' + levelLabel + '</span></div></div>' +
         '<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>';

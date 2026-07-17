@@ -1,22 +1,38 @@
 // Data for skills and projects (previously sourced from Prisma/DB)
 window.PORTFOLIO_DATA = {
   skills: [
-    { id: "html", name: "HTML", level: 100, category: "frontend", icon: "assets/HTML.svg" },
-    { id: "css", name: "CSS", level: 90, category: "frontend", icon: "assets/CSS.svg" },
+    // Frontend
+    { id: "html", name: "HTML5", level: 100, category: "frontend", icon: "assets/HTML.svg" },
+    { id: "css", name: "CSS3", level: 90, category: "frontend", icon: "assets/CSS.svg" },
     { id: "javascript", name: "JavaScript", level: 90, category: "frontend", icon: "assets/JS.svg" },
+    { id: "typescript", name: "TypeScript", level: 85, category: "frontend", icon: "assets/typescript.svg" },
     { id: "react", name: "React", level: 90, category: "frontend", icon: "assets/react.svg" },
     { id: "nextjs", name: "Next.js", level: 80, category: "frontend", icon: "assets/next.svg" },
     { id: "tailwindcss", name: "Tailwind CSS", level: 90, category: "frontend", icon: "assets/Tailwind CSS.svg" },
+    // Backend
     { id: "nodejs", name: "Node.js", level: 80, category: "backend", icon: "assets/Node JS.svg" },
     { id: "expressjs", name: "Express.js", level: 75, category: "backend", icon: "assets/Express JS.svg" },
-    { id: "mongodb", name: "MongoDB", level: 70, category: "backend", icon: "assets/mongoDB.svg" },
-    { id: "axios", name: "Axios", level: 75, category: "backend", icon: "assets/Axios.svg" },
-    { id: "stripe", name: "Stripe", level: 80, category: "backend", icon: "assets/stripe.svg" },
-    { id: "firebase", name: "Firebase", level: 85, category: "backend", icon: "assets/Firebase.svg" },
-    { id: "github", name: "GitHub", level: 90, category: "tools", icon: "assets/Github.svg" },
-    { id: "docker", name: "Docker", level: 70, category: "tools", icon: "assets/docker.svg" },
-    { id: "figma", name: "Figma", level: 85, category: "tools", icon: "assets/Figma.svg" },
-    { id: "vscode", name: "VS Code", level: 95, category: "tools", icon: "assets/VS Code.svg" }
+    { id: "php", name: "PHP", level: 70, category: "backend", icon: "assets/php.svg" },
+    { id: "laravel", name: "Laravel", level: 65, category: "backend", icon: "assets/Laravel.svg" },
+    // Database
+    { id: "postgresql", name: "PostgreSQL", level: 80, category: "database", icon: "assets/Postgresql.svg" },
+    { id: "mongodb", name: "MongoDB", level: 70, category: "database", icon: "assets/mongoDB.svg" },
+    { id: "mysql", name: "MySQL", level: 75, category: "database", icon: "assets/MySQL.svg" },
+    { id: "prisma", name: "Prisma", level: 75, category: "database", icon: "assets/prisma.svg" },
+    { id: "firebase", name: "Firebase", level: 85, category: "database", icon: "assets/firebase.svg" },
+    // APIs & Services
+    { id: "axios", name: "Axios", level: 75, category: "apis", icon: "assets/Axios.svg" },
+    { id: "stripe", name: "Stripe", level: 80, category: "apis", icon: "assets/stripe.svg" },
+    { id: "clerk", name: "Clerk", level: 75, category: "apis", icon: "assets/clerk.svg" },
+    { id: "cloudinary", name: "Cloudinary", level: 70, category: "apis", icon: "assets/cloudinary.svg" },
+    // DevOps & Tools
+    { id: "docker", name: "Docker", level: 70, category: "devops", icon: "assets/docker.svg" },
+    { id: "git", name: "Git", level: 90, category: "devops", icon: "assets/Git.svg" },
+    { id: "github", name: "GitHub", level: 90, category: "devops", icon: "assets/github.svg" },
+    { id: "vercel", name: "Vercel", level: 85, category: "devops", icon: "assets/vercel.svg" },
+    { id: "vscode", name: "VS Code", level: 95, category: "devops", icon: "assets/VS Code.svg" },
+    { id: "postman", name: "Postman", level: 80, category: "devops", icon: "assets/postman.svg" },
+    { id: "figma", name: "Figma", level: 85, category: "devops", icon: "assets/Figma.svg" }
   ],
   projects: [
     {
