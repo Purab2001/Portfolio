@@ -36,9 +36,81 @@ window.PORTFOLIO_DATA = {
   ],
   projects: [
     {
+      id: "eazycart",
+      title: "EazyCart",
+      images: ["assets/projects/project1.webp", "assets/projects/project1-2.webp", "assets/projects/project1-3.webp", "assets/projects/project1-4.webp", "assets/projects/project1-5.webp"],
+      overview: "EazyCart is a full-featured, open-source multi-vendor e-commerce platform that enables multiple sellers to manage their own stores on a unified marketplace. Built with modern web technologies, it offers a seamless shopping experience for customers, comprehensive tools for vendors, and powerful admin controls for platform management.",
+      features: [
+        "Browse products from multiple vendors with a smart shopping cart and real-time updates",
+        "Secure payments via Stripe and Cash on Delivery",
+        "Order tracking, history, and coupon code support",
+        "Product ratings, reviews, and multiple address management",
+        "Comprehensive vendor store dashboard with product CRUD operations",
+        "AI-powered product listing with OpenAI integration",
+        "Sales analytics, order tracking, and inventory management",
+        "Image upload with ImageKit integration",
+        "Admin platform control with store approval system",
+        "Coupon management, analytics, and store monitoring"
+      ],
+      techStacks: {
+        frontend: ["Next.js 15.5", "React 19", "Tailwind CSS 4", "Redux Toolkit", "Recharts", "Lucide React", "React Hot Toast"],
+        backend: ["PostgreSQL (Neon)", "Prisma", "Clerk", "Stripe", "OpenAI", "Inngest"],
+        tools: ["ImageKit", "Axios", "date-fns"]
+      },
+      challenges: [
+        "Building a scalable multi-vendor architecture with isolated store management",
+        "Integrating Stripe payments alongside Cash on Delivery workflows",
+        "Implementing AI-powered product listings with OpenAI",
+        "Managing background jobs and data consistency with Inngest and Prisma"
+      ],
+      futurePlans: [
+        "Add advanced vendor analytics and reporting dashboards",
+        "Implement multi-currency and multi-language support",
+        "Introduce AI-driven product recommendations for customers"
+      ],
+      demoUrl: "https://geteazycart.vercel.app",
+      githubUrl: "https://github.com/Purab2001/EazyCart"
+    },
+    {
+      id: "ascendai",
+      title: "AscendAI",
+      images: ["assets/projects/project2.webp", "assets/projects/project2-2.webp", "assets/projects/project2-3.webp", "assets/projects/project2-4.webp", "assets/projects/project2-5.webp"],
+      overview: "AscendAI is a comprehensive AI-powered platform that streamlines content creation workflows. From generating blog posts and titles to creating stunning images and analyzing resumes, AscendAI empowers creators with cutting-edge artificial intelligence tools. Built with modern web technologies and featuring a freemium model with Clerk-powered subscription management.",
+      features: [
+        "AI Article Generator with customizable length",
+        "SEO-friendly blog title generation with smart prompts",
+        "AI image generation from text descriptions",
+        "One-click background removal and intelligent object removal",
+        "Community gallery to share and discover AI-generated art",
+        "AI-powered resume review with constructive feedback",
+        "Freemium model with 10 free generations per month",
+        "Pro plan with unlimited access and Stripe-integrated pricing",
+        "Clerk-powered authentication and subscription management",
+        "Usage tracking and creation history"
+      ],
+      techStacks: {
+        frontend: ["React 19.1", "Vite 7.1", "Tailwind CSS 4.1", "Clerk React", "React Router 7.9", "React Markdown", "Lucide React", "React Hot Toast"],
+        backend: ["Express 5.1", "OpenAI (Gemini API)", "Cloudinary", "Neon PostgreSQL", "Clerk Express", "PDF Parse", "Multer"],
+        tools: ["Axios", "CORS", "dotenv"]
+      },
+      challenges: [
+        "Integrating multiple AI services for text, image, and document analysis",
+        "Building a freemium model with usage limits and Clerk subscriptions",
+        "Handling file uploads and PDF parsing for resume analysis",
+        "Optimizing image generation and transformation via Cloudinary"
+      ],
+      futurePlans: [
+        "Expand AI toolset with more content generation features",
+        "Add team collaboration and shared workspaces",
+        "Introduce advanced analytics for content performance"
+      ],
+      demoUrl: "https://ascend-ai-2025.vercel.app",
+      githubUrl: "https://github.com/Purab2001/AscendAI"
+    },
+    {
       id: "paynode",
       title: "Paynode",
-      images: ["assets/projects/project1.jpg", "assets/projects/project1-2.png", "assets/projects/project1-3.png", "assets/projects/project1-4.png", "assets/projects/project1-5.png"],
+      images: ["assets/projects/project3.webp", "assets/projects/project3-2.webp", "assets/projects/project3-3.webp", "assets/projects/project3-4.webp", "assets/projects/project3-5.webp"],
       overview: "Paynode is a modern, full-stack employee management and payroll platform designed to streamline HR operations, automate payroll, and deliver real-time analytics. It empowers organizations with secure authentication, role-based dashboards, and seamless payment processing.",
       features: [
         "Role-based dashboards for Admin, HR, and Employees",
@@ -71,73 +143,6 @@ window.PORTFOLIO_DATA = {
       ],
       demoUrl: "http://paynode-2025.web.app",
       githubUrl: "https://github.com/Purab2001/Paynode_client"
-    },
-    {
-      id: "repair-right",
-      title: "RepairRight",
-      images: ["assets/projects/project2.png", "assets/projects/project2-2.png", "assets/projects/project2-3.png", "assets/projects/project2-4.png", "assets/projects/project2-5.png"],
-      overview: "RepairRight is a comprehensive, full-stack home repair and service booking platform that connects homeowners with trusted professionals. It offers seamless booking, management, and tracking of home repair services with real-time updates and secure authentication.",
-      features: [
-        "Firebase Authentication with email/password and Google sign-in",
-        "JWT-based API security and role-based access control",
-        "Service management with CRUD operations and advanced search",
-        "One-click booking and real-time status tracking",
-        "Booking history for customers and providers",
-        "Responsive design with dark/light theme and smooth animations",
-        "Custom notifications and loading states",
-        "Popular services dashboard and provider profiles",
-        "SEO-friendly dynamic page titles and custom error pages"
-      ],
-      techStacks: {
-        frontend: ["React", "Vite", "React Router", "Tailwind CSS", "DaisyUI", "Framer Motion"],
-        backend: ["Node.js", "Express", "React", "Firebase Admin"],
-        tools: ["ESLint", "Axios", "CORS", "dotenv"]
-      },
-      challenges: [
-        "Implementing secure JWT authentication with Firebase integration",
-        "Building responsive search and filtering for large service catalogs",
-        "Ensuring smooth theme transitions and animations without performance impact",
-        "Handling edge cases in booking conflicts and cancellations"
-      ],
-      futurePlans: [
-        "Add GPS tracking for service providers",
-        "Implement rating and review system for service quality",
-        "Add payment gateway integration for seamless transactions",
-        "Implement push notifications for booking updates"
-      ],
-      demoUrl: "https://repair-right-1a8c9.web.app",
-      githubUrl: "https://github.com/Purab2001/RepairRight-client"
-    },
-    {
-      id: "hobbyhub",
-      title: "HobbyHub",
-      images: ["assets/projects/project3.png", "assets/projects/project3-2.png", "assets/projects/project3-3.png", "assets/projects/project3-4.png", "assets/projects/project3-5.png"],
-      overview: "HobbyHub is a full-stack web application that connects people through shared interests. Users can discover, join, and manage hobby groups, interact with like-minded enthusiasts, and share experiences.",
-      features: [
-        "Discover and join hobby groups",
-        "Create and manage communities",
-        "Comment, like, and interact in real time",
-        "Personalized dashboard for group and profile management",
-        "Responsive design with light/dark theme",
-        "Smooth animations and error handling",
-        "Firebase authentication and real-time database",
-        "REST API for group management"
-      ],
-      techStacks: {
-        frontend: ["React 19.1", "Vite 6.3.5", "Tailwind CSS 4.1.8", "React Router 7.6.1", "Lottie", "React Icons", "Framer Motion"],
-        backend: ["Node.js/Express", "React (Atlas)", "Firebase (Auth, Hosting, Realtime DB)", "Vercel (Server deployment)"],
-        tools: []
-      },
-      challenges: [
-        "Managing state consistency between Firebase Realtime Database and React",
-        "Handling complex user permissions and group management features"
-      ],
-      futurePlans: [
-        "Implement event scheduling and calendar integration",
-        "Implement location-based group discovery for local meetups"
-      ],
-      demoUrl: "https://hobbyhub-19bff.web.app",
-      githubUrl: "https://github.com/Purab2001/HobbyHub_Client"
     }
   ]
 };
